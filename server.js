@@ -61,6 +61,18 @@ app.get('/collectie', async function (request, response) {
    response.render('collectie.liquid')
 })
 
+app.get('/nabloei', async function (request, response) {
+   // Render index.liquid uit de Views map
+   // Geef hier eventueel data aan mee
+   response.render('collectie-na-de-bloei.liquid')
+})
+
+app.get('/inbloei', async function (request, response) {
+   // Render index.liquid uit de Views map
+   // Geef hier eventueel data aan mee
+   response.render('collectie-in-de-bloei.liquid')
+})
+
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
@@ -78,3 +90,7 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
+app.use((request, response) =>{
+  response.render("404.liquid");
+});
